@@ -1,0 +1,9 @@
+# Strange programming ideas
+
+This is a repo of all the strange programming ideas I came up with, and thought that they were interesting enough to brain-dump the idea into a file so that I could come back to it later. Do note that some of these ideas are more formed than others, I just thought that the concept was interesting enough to note down for later.
+
+# Index:
+  - [Hyper Exokernel](./hyper-exokernel-system.md)
+    - The main point of this one is that I wanted to extend the philosophy of an exokernel into something more practical. Basically, I took some inspiration from [GNU Hurd](https://www.gnu.org/software/hurd/), the [osdev wiki page on exokernels](https://wiki.osdev.org/Exokernel), and also some advice from my dad who has worked on aviation computers. The last one is where I got the idea for virtual devices and having one "master libOS" that controls the resources. But that design is not a requirement, just an idea that I think might be successful.
+    - A big point on this one is that the libOSs are loaded as semi-privilaged kernel modules, not as a standerd library. Also, the libOSs are designed with capability tokens in mind, so that the exokernel does not need to spend memory keeping track of what each libOS is allowed to do, the token will let the kernel tell, also the tokens are cryptographically signed by the exokernel so that they can be trusted.
+    - I also liked the idea of how GNU Hurd lets hardware be managed more directly, but I thought having the managers in userspace was unnecessarily slow, and using one standard IPC for everything is needlessly slow.
